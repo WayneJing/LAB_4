@@ -42,6 +42,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnReport"
         android:text="See Report"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMap"
+        android:text="See Map"/>
 
 </LinearLayout>
 

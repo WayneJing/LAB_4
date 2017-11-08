@@ -34,6 +34,7 @@ public class BackgroundService extends Service {
     private int mMsgCount=0;
     private ArrayList<String> mReports;
     private ArrayList<String> mLocations;
+    private Location mlocationgps;
     private static final long DELAY_MS=10000;
     private static final String TAG_REPORT= "tagReport";
     private static final String TICKER_TEXT = "Lab 4";
@@ -91,6 +92,7 @@ public class BackgroundService extends Service {
             long when = System.currentTimeMillis();
             Time time = new Time(when);
             Notification notification = new Notification(R.drawable.icon, TICKER_TEXT, when);
+            mlocationgps=location;
             String contentText = "Latitude: " + location.getLatitude() + ",\n Longitude: " + location.getLongitude();
             Intent notificationIntent = new Intent(this, BackgroundService.class);
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
@@ -108,5 +110,7 @@ public class BackgroundService extends Service {
             return BackgroundService.this;
         }
     }
-
+    public Location getLocation(){
+        return mlocationgps;
+    }
 }
